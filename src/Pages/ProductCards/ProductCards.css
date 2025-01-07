@@ -1,0 +1,35 @@
+.container {
+  width: 18rem;
+  height: 22rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+.cardImage {
+  height: 10rem;
+  object-fit: contain; 
+}
+
+.card-title {
+  font-size: 15px;
+}
+
+.cart{
+  width: 140px;
+  height: 37px;
+  background-color: rgb(255, 216, 20);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 17px;
+  border: none;
+}
+
+.cart:hover{
+  background-color:rgb(223, 190, 26) ;
+}
+
+.cart:active {
+  opacity: 0.6;
+}

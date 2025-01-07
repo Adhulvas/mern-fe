@@ -1,0 +1,28 @@
+.cart-container {
+  margin-top: 50px;
+}
+
+.cart-item {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.item-image {
+  width: 120px;
+  object-fit: contain;
+  margin-right: 50px;
+}
+
+.quantity-button {
+  border-radius: 20px;
+  width: 50px;
+}
+
+.remove-button {
+  width: 100px;
+  border-radius: 20px;
+}
+
+.image-cart{
+  width: 200px;
+}

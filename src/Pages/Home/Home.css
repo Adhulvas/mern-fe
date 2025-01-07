@@ -1,0 +1,16 @@
+.Product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; 
+  background-color: #e0e0e0;
+  padding-top: 65px;
+}
+
+main {
+  min-height: calc(100vh - 150px);
+  padding: 20px;
+  overflow-y: auto;  
+  background-color: #ffffff;
+}
