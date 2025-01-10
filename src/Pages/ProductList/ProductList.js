@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AxiosInstance } from '../../Config/AxiosInstance';
-import './ProductList.css'
 import { useDispatch } from 'react-redux';
 import { setCartItems } from '../../GlobalStates/CartSlice';
 
@@ -48,34 +47,36 @@ const ProductList = () => {
   }
 
   return (
-    <div>
-      <h1>Products in {categoryName}</h1>
-      <div className="row">
-        {products.map((product) => (
-          <div key={product._id} className="col-md-3 mb-4"> 
-            <div className="card" style={{ width: '100%', maxHeight: '550px' }}>
-              <img 
-                src={product.image} 
-                alt={product.name} 
-                className="card-img-top"
-                onClick={()=>navigate(`/product/productDetails/${product._id}`)} 
-                style={{ height: '350px', objectFit: 'cover' }} 
-              /> 
-              <div className="card-body">
-                <h5 className="card-title">{product.name}</h5>
-                <p className="card-text"><strong>Price: ${product.price}</strong></p>
-                <button
-                  className="btn btn-primary w-100"
-                  onClick={() => handleAddToCart(product)}
-                >
-                  Add to Cart
-                </button>
+      <div className='mt-5'>
+        <div className="container-fluid">
+          <div className="row">
+            {products.map((product) => (
+              <div key={product._id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"> 
+                <div className="card" style={{ width: '100%', maxHeight: '550px' }}>
+                  <img 
+                    src={product.image} 
+                    alt={product.name} 
+                    className="card-img-top"
+                    onClick={() => navigate(`/product/productDetails/${product._id}`)} 
+                    style={{ height: '350px', objectFit: 'cover' }} 
+                  /> 
+                  <div className="card-body p-1">
+                    <h5 className="card-title">{product.name}</h5>
+                    <p className="card-text"><strong>Price: ${product.price}</strong></p>
+                    <button
+                      className="btn btn-primary w-100"
+                      onClick={() => handleAddToCart(product)}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
-    </div>
+  
   );
 };
 

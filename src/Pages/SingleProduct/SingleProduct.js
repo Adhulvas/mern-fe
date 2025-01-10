@@ -47,20 +47,25 @@ function SingleProduct() {
   }
 
   return (
-    <div className='single-product-container'>
-      <div className='row'>
-        <div className='col-12 col-md-6 d-flex justify-content-center'>
-          <img style={{width:'25rem', height:'30rem'}} src={product.image} alt="" />
-        </div>
-        <div className='col-12 col-md-6 d-flex flex-column justify-content-center align-items-start'>
-          <p className='card-title'><strong>{product.name}</strong></p>
-          <p><strong>Price:</strong>${product.price}</p>
-          <p><strong>Description:</strong>{product.description}</p>
-          <p><strong>Category:</strong>{product.category}</p>
-          <button className='cart' onClick={handleAddToCart}>Add to cart</button>
+      <div className='single-product-container'>
+        <div className='row'>
+          <div className='col-12 col-md-6 d-flex justify-content-center'>
+            <img 
+              style={{ width:'25rem', height:'30rem', objectFit: 'contain' }} 
+              src={product.image} 
+              alt={product.name} 
+            />
+          </div>
+          <div className='col-12 col-md-6 d-flex flex-column justify-content-center align-items-start'>
+            <p className='card-title'><strong>{product.name}</strong></p>
+            <p><strong>Price:</strong> ${product.price}</p>
+            <p><strong>Description:</strong> {product.description}</p>
+            <p><strong>Category:</strong> {product.category}</p>
+            <button className='cart mt-3' onClick={handleAddToCart}>Add to cart</button>
+          </div>
         </div>
       </div>
-    </div>
+
   );
 }
 
