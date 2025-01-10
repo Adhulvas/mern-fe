@@ -4,7 +4,7 @@ const userSlice=createSlice({
   name:'user',
   initialState:{
     loginData:{
-      username: "",
+      email: "",
       password: ""
     },
     signupData:{

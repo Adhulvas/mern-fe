@@ -1,14 +1,22 @@
 import './User.css'
 import { FaUser, FaLock } from "react-icons/fa";
-import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLoginData } from '../GlobalStates/UserSlice';
+import { AxiosInstance } from '../Config/AxiosInstance';
+import { useEffect } from 'react';
 
 function Login() {
   const {loginData}=useSelector((store)=>store.user)
   const navigate=useNavigate()
   const dispatch=useDispatch()
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/'); 
+    }
+  }, [navigate]);
 
   const handleInput=(event)=>{ 
     dispatch(setLoginData({...loginData,[event.target.name]:event.target.value}))
@@ -16,11 +24,15 @@ function Login() {
   }
 
   const handleLogin = () => {
-    console.log(loginData);
-    axios.post(`${process.env.REACT_APP_API_URL}/user/login`, loginData)
+    if (!loginData.email || !loginData.password) {
+      alert('Please fill in all fields');
+      return;
+    }
+
+    AxiosInstance.post('/user/login', loginData)
       .then((res) => {
         localStorage.setItem('token', res.data.token);
-        navigate('/home');
+        navigate('/');
       })
       .catch((err) => {
         console.error('Login error:', err.response ? err.response.data : err.message);
@@ -41,10 +53,10 @@ function Login() {
           <div className='input-box'>
             <input
              type="text" 
-             name='username' 
-             placeholder='Username' 
+             name='email' 
+             placeholder='Email' 
              onChange={handleInput} 
-             value={loginData.username || ''} />
+             value={loginData.email || ''} />
             <FaUser className='icon' />
           </div>
 
@@ -60,7 +72,7 @@ function Login() {
 
           <div className="remember-forgot">
             <label><input type="checkbox" />Remember me</label>
-            <a href="#">Forgot password?</a>
+            <Link>Forgot password?</Link>
           </div>
 
           <button  className='enter-button' onClick={handleLogin}>Login</button>

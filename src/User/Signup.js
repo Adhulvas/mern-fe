@@ -1,10 +1,10 @@
 import './User.css'
 import { FaUser, FaLock } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
-import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSignupData } from '../GlobalStates/UserSlice';
+import { AxiosInstance } from '../Config/AxiosInstance';
 
 function Signup() {
   const {signupData}=useSelector((store)=>store.user)
@@ -17,15 +17,15 @@ function Signup() {
   }
 
   const handleSignup=()=>{
-    console.log(signupData);
-    axios.post(`${process.env.REACT_APP_API_URL}/user/signup`, signupData, {
+    console.log('SIGNUP========',signupData);
+    AxiosInstance.post(`${process.env.REACT_APP_API_URL}/user/signup`, signupData, {
       headers: {
         'Content-Type': 'application/json',
       },
     })
     .then((res)=>{
       alert('Signup Successfull')
-      navigate('/');
+      navigate('/login');
     })
     .catch((err) => {
       console.error('Signup error:', err.response ? err.response.data : err.message);
@@ -84,7 +84,7 @@ function Signup() {
 
           <div className="remember-forgot">
             <label><input type="checkbox" />Remember me</label>
-            <a href="#">Forgot password?</a>
+            <Link>Forgot password?</Link>
           </div>
 
           <button className='enter-button' onClick={handleSignup}>Register</button> 

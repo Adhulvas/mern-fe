@@ -15,14 +15,15 @@ function Cart() {
         <>
           {cartItems.map((item,index) => (
             <div className='cart-item' key={index}>
-              <img className='item-image' src={item.image}/>
+              <img className='item-image' src={item.image} alt=''/>
               <div>
-                  <h4>{item.title}</h4>
+                  <h4>{item.name}</h4>
+                  <p>{item.description}</p>
                   <p>Price: ${item.price * item.quantity}</p>
                   <p>Quantity: {item.quantity}</p>
-                  <button className='quantity-button' onClick={() => dispatch(increaseQuantity(item.id))}>+</button>
-                  <button className='quantity-button' onClick={() => dispatch(decreaseQuantity(item.id))}>-</button>
-                  <button className='remove-button' onClick={() => dispatch(removeFromCart(item.id))}>Remove</button>
+                  <button className='quantity-button' onClick={() => dispatch(increaseQuantity(item._id))}>+</button>
+                  <button className='quantity-button' onClick={() => dispatch(decreaseQuantity(item._id))}>-</button>
+                  <button className='remove-button' onClick={() => dispatch(removeFromCart(item._id))}>Remove</button>
               </div>
             </div>
           ))}

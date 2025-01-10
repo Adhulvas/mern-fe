@@ -3,16 +3,22 @@
   padding: 0;
 }
 
-@media (max-width: 300px) {
-  .single-product-container {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
+
+.cart {
+  background-color: #28a745; 
+  color: white; 
+  border: none; 
+  padding: 10px 20px;
+  font-size: 16px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.loader-container {
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  height: 100vh; 
+.cart:hover {
+  background-color: #218838;
+}
+
+.cart:active {
+  transform: scale(0.95); 
 }

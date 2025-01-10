@@ -1,19 +1,26 @@
-import { Outlet } from 'react-router-dom'
-import './Home.css'
-import Footer from '../../Components/Footer/Footer'
-import Navbar from '../../Components/Navbar/Navbar'
+  import React from 'react';
+  import './Home.css'
+  import banner from '../../assets/banner.png'
 
-function Home() {
+  function Home() {
+    return (
+      <div
+        style={{
+          height: '100vh',
+          backgroundImage: `url(${banner})`, 
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+        className="homepage"
+      >
+        <div className="overlay">
+          <div className="content text-center text-white">
+            <h1>Welcome to ShopEase</h1>
+            <p>Your one-stop shop for everything you need!</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
-  return (
-    <div>
-      <Navbar/>
-      <main>
-      <Outlet/>
-      </main>
-      <Footer/>
-    </div>
-  )
-}
-
-export default Home
+  export default Home;

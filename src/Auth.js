@@ -19,3 +19,4 @@ export function logout() {
   localStorage.removeItem("token");
   console.log("token removed");
 }
+

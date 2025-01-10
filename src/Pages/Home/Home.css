@@ -1,16 +1,21 @@
-.Product-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 10px; 
-  background-color: #e0e0e0;
-  padding-top: 65px;
+.homepage {
+  position: relative;
+  overflow: hidden; 
 }
 
-main {
-  min-height: calc(100vh - 150px);
-  padding: 20px;
-  overflow-y: auto;  
-  background-color: #ffffff;
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5); 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  position: relative;
+  z-index: 2; 
 }
