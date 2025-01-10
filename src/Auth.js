@@ -12,7 +12,7 @@ export function Auth(){
 
 export function AvoidLogin() {
   const token = localStorage.getItem("token");
-  return token ? <Navigate to="/home" /> : <Outlet />;
+  return token ? <Navigate to='/' /> : <Outlet />;
 }
 
 export function logout() {

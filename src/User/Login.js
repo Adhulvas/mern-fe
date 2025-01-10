@@ -16,7 +16,11 @@ function Login() {
     if (token) {
       navigate('/'); 
     }
-  }, [navigate]);
+
+    dispatch(setLoginData({ email: '', password: '' }));
+  }, [navigate,dispatch]);
+
+  
 
   const handleInput=(event)=>{ 
     dispatch(setLoginData({...loginData,[event.target.name]:event.target.value}))

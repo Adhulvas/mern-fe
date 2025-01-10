@@ -18,7 +18,7 @@ function Signup() {
 
   const handleSignup=()=>{
     console.log('SIGNUP========',signupData);
-    AxiosInstance.post(`${process.env.REACT_APP_API_URL}/user/signup`, signupData, {
+    AxiosInstance.post('/user/signup', signupData, {
       headers: {
         'Content-Type': 'application/json',
       },

@@ -94,7 +94,7 @@ const Header = () => {
               </div>
             </div>
 
-            <li onClick={handleLogout}>
+            <li onClick={handleLogout} style={{cursor:'pointer'}}>
               <IoLogOutOutline style={{ fontSize: '20px' }} className="text-decoration-none link-dark" /> Logout
             </li>
           </ul>
